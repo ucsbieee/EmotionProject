@@ -1,0 +1,64 @@
+PROJECT: Deep Learning and GUI Development for Emotional Facial Recognition
+-- This the the readme file for the Emotion Detection Project -- 
+-- This project was designed Austin Lynch for the purposes to UCSB's IEEE software project class -- 
+
+** HOW TO USE **
+1. Install Necessary librarys in Matlab listed below
+2. Import the data excel file from following folder link:
+   https://docs.google.com/spreadsheets/d/172ZCF12ufH1fADBiHSMoya5wh9Tsmn8P/edit?usp=sharing&ouid=109210790893542256917&rtpof=true&sd=true
+2. Make sure to have face data excel file in current folder to build database 
+3. Construct database folders to store data images (* Note Folder Names Matter *)
+    a. Have sub-folder in current folder names "database"
+    b. Within this sub-folder have 7 different folders names: "Suprise", "Sad",
+       "Neutral", "Happy", "Fear", "Disgust", "Angry"
+    c. These folders should initially be empty
+3. Run the Emotions.m code file to build and run the GUI
+4. When the GUI is up
+    a. First Build the Database by pressing the button. This will take around 2-3 minutes
+       to build if not already. 
+    b. Second Train the Neural Network. A Training Plot will show up showing progress. 
+       This will take 2-3 minutes as well and network will be saved to current folder when 
+       done. 
+    c. You can now run the GUI with emotion detection now that the database is done and 
+       network trained and stored 
+    d. When done Reading face, press stop button the the program will stop 
+
+** NECESSARY MATLAB LIBRARYS FOR CODE TO RUN **
+    1. Image Processing Toolbox
+    2. Deep Learning Toolbox
+    3. Matlab Support package for USB Webcams
+    4. Computer Vision Toolbox
+
+** FILES **
+- Emotion.m - 
+This file Builds the GUI and hold call back functions for when buttons pressed. 
+This is the main file of the project. 
+
+- ClassifyFrame.m - 
+This is a supporting file for Emotion.m that takes trained Neural network and image
+as inputs and returns the image with labeled bounding box and classification label from 
+network.
+
+- TrainCNN.m - 
+This is a supporting file for Emotion.m that builds the neural network and trains it
+if it is not already trained and saved or uploads the previously trained neural network 
+file. 
+
+** FUNCTIONS **
+ - BuildDataBaseButtonPushed - 
+This function housed in Emotion.m is a call back function for when the Build Database 
+Button is pressed. It checks to see if the database is already built and if not is then 
+read through the data base excel file and build the database of images to be used in the
+neural network. 
+
+ - TrainCNNButtonPushed - 
+This function housed in Emotion.m is a call back function for when the TrainCNN
+Button is pressed. It first check to see if the network has been previously trained and
+saved and if not then it builds and Trains the network by calling on the function housed in
+TrainCNN.m
+
+ - StartButtonPushed - 
+This function housed in Emotion.m is a call back function for when the \Start
+Button is pressed. It is 
+
+ - StopButtonPushed - 
